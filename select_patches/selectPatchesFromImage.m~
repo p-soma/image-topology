@@ -1,0 +1,28 @@
+function A = selectPatchesFromImage(buf, n, dim, cut_p)
+% function to select the top cut_p% of high-contrast 3x3 pixel patches from an image
+%   param buf: matrix of greyscale pixel values for an image
+%   param n: number of patches to sample from the image
+%   returns A: array of selected pixels (after some preproccessing)
+%   NOTE: must read in IML first
+
+% get random indices for patch centers
+sz = size(buf);
+[rowidx, colidx] = randPatchCenters(n,dim,sz);
+
+patches = getPatchVectors(rowidx, colidx, dim);
+
+% map 9x9 -> 3x3, essentially 'pixelating'
+% patches = pixelate(patches, n, 81, 9);
+
+patches = logMeanAdjust(patches);
+dNorms = getPatchDNorms(patches, dim, n);
+
+[keepPatches keepDNorms] = dNormCut(patches, dNorms, n, cut_p);
+
+% normalize by dividing each patch vector by its dNorm 
+keepPatches = keepPatches ./ keepDNorms;
+
+% perform a change of basis
+A = changeCoordinates(keepPatches);
+
+
