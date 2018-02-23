@@ -21,6 +21,9 @@ function [rowidx, colidx]  = randPatchCenters(n, dim, sz)
     % compute pixel indices of center of each random patch 
     %   adjust by adding border_width so lowest possible index is equal to
     %   1 + border_width, which is in the acceptable range
+%     fprintf('rowbound: %d\n',rowbound)
+%     fprintf('n: %d\n',n)
+%     fprintf('border width: %d\n', border_width)
     rowidx = randperm(rowbound, n) + border_width;     % random unique row indices
     colidx = randperm(colbound, n) + border_width;     % random unique col indices
 end

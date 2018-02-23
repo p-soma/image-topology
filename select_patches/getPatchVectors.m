@@ -1,5 +1,5 @@
 function patches = getPatchVectors(buf, rowidx, colidx, n, dim)
-% function to get the raw patch vectors from an image
+% function to get the raw patch vectors from an image array
 %   param rowidx: the row indices to sample
 %   param colidx: the column indices to sample
 %   param dim: dimension of the vector to represent each patch
