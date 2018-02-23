@@ -10,6 +10,7 @@ function [newPatches_9, newPatches_81] = selectPatchesFromImage(buf, n, dim, cut
 
     % get random indices for patch centers
     sz = size(buf);
+    
     [rowidx, colidx] = randPatchCenters(n, dim, sz);
 
     patches = getPatchVectors(buf, rowidx, colidx, n, dim);
@@ -38,9 +39,6 @@ function [newPatches_9, newPatches_81] = selectPatchesFromImage(buf, n, dim, cut
     newPatches_81 = newPatches_81(keepIDX,:);
     dNorms81 = dNorms81(keepIDX,:);
     newPatches_81 = newPatches_81 ./ dNorms81;
-    
-
-    
     
 end
 
