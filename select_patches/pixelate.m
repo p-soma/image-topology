@@ -1,4 +1,4 @@
-function pixelated = pixelate(patches, n, dim_init, dim_final)
+function pixelated = pixelate(patches, dim_init, dim_final)
 % function to pixelate each patch in an array of patch vectors
 %   param patches: array of patch vectors to be pixelated
 %   param n: number of patches (num rows in patches)
@@ -20,6 +20,7 @@ function pixelated = pixelate(patches, n, dim_init, dim_final)
         error("dim_final must perfectly divide dim_init");
     end
     
+    n = size(patches,1);
     pixelated = zeros(n, dim_final);
     
     % indices of top left pixel in each sub-patch

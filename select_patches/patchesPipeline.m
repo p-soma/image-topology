@@ -13,6 +13,5 @@ patches = createPatchSample(n, cut, dim, imgPath);
 
 % save to csv
 dataPath = './patches/';
-%idString = sprintf('n%d_m%d_cut%.02f_k%d_dim%d', n, m, (cut*100), k, dim);
 patches_f = fullfile(dataPath,'M9.csv'); 
 csvwrite(patches_f, patches);
