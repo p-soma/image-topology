@@ -33,6 +33,7 @@ function patches = createPatchSample(n, cut, dim, imgPath)
         
         % put on -1 to 1
         
+        
         % take the log of each pixel
         patchSamp = log(1 + patchSamp);
         
