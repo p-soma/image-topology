@@ -1,4 +1,4 @@
-function [gmin, gmax] = pixelExtremes(imgPath)
+function [gmin, gmax, meann] = pixelExtremes(imgPath)
 % find the global minimum and maximum pixel values for the entire set
     filestr = ls(imgPath);
     images = strsplit(filestr);
@@ -6,12 +6,16 @@ function [gmin, gmax] = pixelExtremes(imgPath)
 
     gmax = 0;
     gmin = inf;
+    
+    meansum = 0;
 
     for image=images
 
         filepath = fullfile(imgPath,image);
         buf = readIML(string(filepath));
-
+        
+        meansum = meansum + mean(mean(buf));
+        
         lmax = max(max(buf));
         lmin = min(min(buf));
 
@@ -23,5 +27,6 @@ function [gmin, gmax] = pixelExtremes(imgPath)
         end
 
     end
+    meann = meansum / length(images);
     
 end
