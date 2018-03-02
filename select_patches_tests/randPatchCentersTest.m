@@ -5,7 +5,7 @@ addpath(genpath('/Users/paulsoma/Documents/academic/pa_cmse/persistent_homology_
 n1 = 10;
 dim1 = 9;
 sz1 = [30, 30];
-badIDX1 = [1,2,3,28,29,30];
+badIDX1 = [1,30];
 
 for i=1:200
     [r1, c1] = randPatchCenters(n1, dim1, sz1);
@@ -14,12 +14,12 @@ for i=1:200
     assert(badRows1 == 0);
     assert(badCols1 == 0);
 end
-
+sprintf('TEST 1: PASS')
 % test 200 iterations of for 9x9 patches
 n2 = 50;
 dim2 = 81;
 sz2 = [1000, 1000];
-badIDX2 = [1,2,3,4,5,6,995,996,997,998,999,1000];
+badIDX2 = [1,2,3,4,997,998,999,1000];
 
 for j=1:200
     [r2, c2] = randPatchCenters(n2, dim2, sz2);
@@ -28,3 +28,4 @@ for j=1:200
     assert(badRows2 == 0);
     assert(badCols2 == 0);
 end
+sprintf('TEST 2: PASS')

@@ -1,14 +1,17 @@
-function patches = getPatchVectors(buf, rowidx, colidx, n, dim)
-% function to get the raw patch vectors from an image array
-%   param rowidx: the row indices to sample
-%   param colidx: the column indices to sample
+function patches = getPatchVectors(buf, n, dim)
+% function to get the random raw patch vectors from an image matrix
+%   param buf: matrix of pixel intensities for an image
+%   param n: number of patches to extract from the image
 %   param dim: dimension of the vector to represent each patch
-%   returns patches: an n by dim array of patch vectors
-    patches = zeros(n, dim);
-    
+%   returns patches: an n by dim array of sqrt(dim) by sqrt(dim) patches as
+%       dim-dimensional vectors
+
+    patches = zeros(n, dim);    % array of patches to return
+    sz = size(buf);
+    [rowidx, colidx] = randPatchCenters(n, dim, sz); % random indicies
     offset = floor(sqrt(dim)/2);
-    
-    for i = 1:n;
+   
+    for i = 1:n
         row = rowidx(i);
         col = colidx(i);
         patch = buf(row-offset:row+offset, col-offset:col+offset);

@@ -4,14 +4,13 @@
 %   save patches sample to ../patches
 
 n = 1000; 
-m = 2;
 cut = 0.2; 
 k = 15;
 dim = 81;
 imgPath = './van-hateren-images/';
 
 % [3 by 3 patches, corresponding 9 by 9 patches, coordinates in R8]
-[P_9, P_81, A] = createPatchSample(n, m, cut, k, dim, imgPath);
+patches = createPatchSample(n, m, cut, k, dim, imgPath);
 
 
 

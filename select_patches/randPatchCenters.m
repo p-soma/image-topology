@@ -1,30 +1,28 @@
-function [rowidx, colidx]  = randPatchCenters(n, dim, sz)
+function [rowidx colidx]  = randPatchCenters(n, dim, sz)
 % compute random matrix coordinates for 
 %   param n number of indices to return
 %   param dim the dimension of patch being sampled (9 or 81)
-%   param sz = [rows, cols] dimensions of the matrix
+%   param sz: dimensions of the array as [rows cols]
     
-    % ignore a 2 image border of outermost pixels
-    %   Due to camera limitations, those pixels are filled in with an
-    %   average value, so we ignore them, as recommended by the data source
-    % based on patch dimensions, ignore an additional offset so no patches
-    %   contain border pixels.
+    % based on patch dimensions, ignore an offset so no patches contain
+    % invalid indicies
     %   for example if dim=9, ignore 1 additional pixel border. if dim=81,
     %   ignore a 4 additional pixel border
-    offset = floor(sqrt(dim)/2);
-    border_width = 2 + offset;
     
-    % compute upper bound on range of random indices for rows and cols
-    rowbound = sz(1) - (2 * border_width);
-    colbound = sz(2) - (2 * border_width);
-
-    % compute pixel indices of center of each random patch 
-    %   adjust by adding border_width so lowest possible index is equal to
-    %   1 + border_width, which is in the acceptable range
-%     fprintf('rowbound: %d\n',rowbound)
-%     fprintf('n: %d\n',n)
-%     fprintf('border width: %d\n', border_width)
-    rowidx = randperm(rowbound, n) + border_width;     % random unique row indices
-    colidx = randperm(colbound, n) + border_width;     % random unique col indices
+    offset = floor(sqrt(dim)/2);
+    
+    % max_idx = total number of possible patch 'centers' to choose from
+    %   (excluding the offset border)
+    sz_ = sz - (2*offset);
+    max_idx = sz_(1) * sz_(2);
+    
+    % get linear indicies
+    lIDX = randperm(max_idx, n);
+    % convert to [row, col] format
+    [r, c] = ind2sub(sz_, lIDX);
+    % add the offset to ignore first offset rows and cols
+    rowidx = r + offset;
+    colidx = c + offset;
+    
 end
 

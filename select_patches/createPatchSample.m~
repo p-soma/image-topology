@@ -1,48 +1,68 @@
-function M_9 = createPatchSample(n, m, cut, k, dim, imgPath)
-% function to create our main space M, a sample of n patches
+function [M3, all_patches, M_9] = createPatchSample(n, cut, imgPath)
+% function to create our main space M9, of high contrast images
 %   param n: the number of patches per image
-%   param m: the number of images to use
 %   param cut_p: percentage of most dense patches to keep
 %   param k: density estimator
 %   param dim: 9 or 81
+    
+    
 
-
-    % total count of image files to choose from
-    NUM_IMAGES = 4212;
-    LOCAL_IMAGES = 9;
+    % images = array of image file names
+    filestr = ls(imgPath);
+    images = strsplit(filestr);
+    images = images(1:end-1);
     
     % number of patches we will end up with
-    total_patches = n * m * cut;
+    total_patches = n * length(images) * cut;
     patches_per_image = n * cut;
-    
-    % select random image numbers
-    %imgs = randperm(NUM_IMAGES, m)
-    imgs = randperm(LOCAL_IMAGES, m);
     
     idx_start = 1;
     idx_end = patches_per_image;
     
-    patches = zeros(total_patches,dim);
+    % for storing the patches we select from each image
+    all_patches = zeros(total_patches, dim);
     
-    M_9 = zeros(total_patches,dim-1);
-    
-    for i=imgs
-        filename = sprintf('imk%05d.iml',i);
-        filepath = fullfile(imgPath,filename);
-        buf = readIML(filepath);
+    for image=images
         
-        % select patches from the image and add to 
-        % 
-        newPatches = selectPatchesFromImage(buf, n, dim, cut);
-        patches(idx_start:idx_end,:) = newPatches(1:patches_per_image,:);
+        filepath = fullfile(imgPath,image);
+        buf = readIML(string(filepath));
         
-        % perform a change of basis
-        A = changeCoordinates(newPatches);
-        M_9(idx_start:idx_end,:) = A(1:patches_per_image,:)
+        % remove a 2-pixel border around the image due to camera
+        % limitations
+        buf = buf(3:end-2,3:end-2);
+        
+        % select n random 9x9 patches from the image as 81-D vectors
+        patches = getPatchVectors(buf, n, dim);
+        
+        % put on -1 to 1
+        
+        % take the log of each pixel
+        patches = log(patches);
+        
+        % subtract the mean
+        patches = patches - repmat(mean(patches,2),1,size(patches,2));
+        
+        % compute d norms
+        dNorms = getPatchDNorms(patches, dim, n);
+        
+        % keep patches with top cut_p % of d norms
+        keepIDX = dNormCut(patches, dNorms, n, cut_p);
+        
+        keepPatches = keepPatches(keepIDX,:);
+        keepdNorms = dNorms(keepIDX,:);
+
+        % normalize by dividing each patch vector by its dNorm 
+        keepPatches = keepPatches ./ dNorms; 
+        
+        all_patches(idx_start:idx_end,:) = keepPatches(1:patches_per_image,:);
+        
+%         % perform a change of basis
+%         A = changeCoordinates(keepPatches);
+%         M_9(idx_start:idx_end,:) = A(1:patches_per_image,:);
         
         % increment indices
-        idx_start = idx_start + patches_per_image
-        idx_end = idx_end + patches_per_image
+        idx_start = idx_start + patches_per_image;
+        idx_end = idx_end + patches_per_image;
     end
 
 end
