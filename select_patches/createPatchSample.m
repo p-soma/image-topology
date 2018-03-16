@@ -4,8 +4,10 @@ function patches = createPatchSample(n, cut, dim, imgPath)
 %   param cut_p: percentage of most dense patches to keep
 %   param dim: 9 or 81
     
+    % min max and mean pixel intensities for entire set
     GMIN = 0;
     GMAX = 25235;
+    GMEAN = 932.6349;
     
     % images = array of image file names
     filestr = ls(imgPath);
@@ -34,17 +36,14 @@ function patches = createPatchSample(n, cut, dim, imgPath)
         % select n random 9x9 patches from the image as 81-D vectors
         patchSamp = getPatchVectors(buf, n, dim);
         
-        % put on -1 to 1
-        
-        
-        % take the log of each pixel
+        % take the log intensity of each pixel
         patchSamp = log(1 + patchSamp);
         
-        % subtract the mean
-        patchSamp = patchSamp - repmat(mean(patchSamp,2),1,size(patchSamp,2));
-        
-        % compute d norms
+        % compute d norms of log intensities
         dNorms = getPatchDNorms(patchSamp, dim, n);
+        
+        % feature scaling: subtract the mean
+        patchSamp = patchSamp - mean(patchSamp,2);
         
         % keep patches with top cut_p % of d norms
         keepIDX = dNormCut(patchSamp, dNorms, n, cut);
