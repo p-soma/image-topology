@@ -1,4 +1,4 @@
-function D = dMatrix(dim)
+afunction D = dMatrix(dim)
 %function to compute the D-matrix of a patch vector of length n
 %   param n: length of patch vector
 %   returns D, the D-matrix for calculating the D-norm of patch vector of
