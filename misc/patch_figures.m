@@ -1,11 +1,12 @@
 
-
+data = fiberovere110knn;
 figure, 
-for i=1:20
-    patch = top20Me19(i,:);
+idx = 1;
+for i=1:100:10000
+    patch = data(i,:);
     patch = (patch + 1) /2;
-    subplot(4,5,i)
+    subplot(10,10,idx)
     imshow(reshape(patch,9,9))
+    idx = idx + 1;
 end
 
-figure, imshow(e1, 'InitialMagnification','fit')
