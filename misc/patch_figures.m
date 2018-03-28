@@ -1,12 +1,12 @@
 
-data = fiberovere110knn;
+data = K1;
 figure, 
 idx = 1;
-for i=1:100:10000
+for i=1:10:900
     patch = data(i,:);
-    patch = (patch + 1) /2;
-    subplot(10,10,idx)
-    imshow(reshape(patch,9,9))
+    patch = (patch + 1) * (4/5);
+    subplot(10,9,idx)
+    imshow(reshape(patch,3,3))
     idx = idx + 1;
 end
 

@@ -15,7 +15,7 @@ for i=1:4
     e = E(i,:);
     eiPath = strcat('over_e', num2str(i));
     for p=cutP
-        fiber = extractFiber(M9_map_P3, M9, p, e);
+        fiber = extractFiberSimpleKnn(M9_map_P3, M9, p, e);
         
         filename = strcat('e',num2str(i),'_p',num2str(p),'.csv');
         fullFile = fullfile(fiberPath,eiPath,filename);

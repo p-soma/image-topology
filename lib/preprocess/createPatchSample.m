@@ -40,7 +40,7 @@ function patches = createPatchSample(n, cut, dim, imgPath)
         patchSamp = log(1 + patchSamp);
         
         % compute d norms of log intensities
-        dNorms = getPatchDNorms(patchSamp, dim, n);
+        dNorms = getPatchDNorms(patchSamp);
         
         % feature scaling: subtract the mean
         patchSamp = patchSamp - mean(patchSamp,2);

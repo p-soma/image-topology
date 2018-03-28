@@ -1,4 +1,4 @@
-function fiber = extractFiber(baseSpace, totalSpace, p, patch)
+function fiber = extractFiberSimpleKnn(baseSpace, totalSpace, p, patch)
 % function to extract a fiber in MN over a patch in Mn
 %   param baseSpace patch space with dimension n^2
 %   param totalSpace patch space with dimension N^2 where N = n^2

@@ -18,6 +18,6 @@ function M_n = patchesPipeline(dim, imgPath, dataPath, dataFileName)
 
     % save to csv
     patches_f = fullfile(dataPath,dataFileName); 
-    csvwrite(patches_f, M_n);
+    dlmwrite(patches_f, M_n, 'delimiter', ',', 'precision', 6);
 
 end
