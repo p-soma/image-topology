@@ -1,4 +1,4 @@
-function kleinGrid = kleinBottleGrid(n)
+function K = kleinBottleGrid(n)
 % function to create a grid of evenly space points on the klein bottle 
 %   param n int number of points on the circle S1 to generate
 %       results in n^2 points on the klein bottle
@@ -15,5 +15,8 @@ function kleinGrid = kleinBottleGrid(n)
     abcdCell = num2cell(abcd,2);
 
     % create grid of patches on K
-    kleinGrid = cell2mat(arrayfun(@(x) createPatchOnK(x),abcdCell,'UniformOutput',false));
+    K = cell2mat(arrayfun(@(x) createPatchOnK(x),abcdCell,'UniformOutput',false));
+    
+    % keep only unique points
+    K = uniquetol(K,0.000001,'ByRows',true);
 end
