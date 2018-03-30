@@ -2,6 +2,10 @@
 % to each
 
 % import patches data
+addpath('/mnt/home/somapaul/cmse/van_hateren_study/software/image-topology/lib');
+addpath('/mnt/home/somapaul/cmse/van_hateren_study/software/image-topology/lib/fiber_analysis/kleinGrid');
+addpath('/mnt/home/somapaul/cmse/van_hateren_study/software/image-topology/lib/preprocess');
+
 M9 = csvread('/mnt/home/somapaul/cmse/van_hateren_study/data/patches/M_9/spaces/M_9_patches.txt');
 M9_map_P3 = csvread('/mnt/home/somapaul/cmse/van_hateren_study/data/patches/M_9/spaces/M_9_as_3by3.txt');
 e1_ =  [1 1 1 0 0 0 -1 -1 -1];
