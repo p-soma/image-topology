@@ -4,8 +4,8 @@ function K = kleinBottleGrid(n)
 %       results in n^2 points on the klein bottle
 %   return kleinGrid, the grid of points on the klein bottle
 %   return distMat, the distance matrix between points
+%   generate 30 uniformly distributed points on S1
 
-    generate 30 uniformly distributed points on S1
     angles = linspace(0,2*pi,n);
     S1 = [cos(angles); sin(angles)]';
 
