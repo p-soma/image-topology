@@ -1,4 +1,8 @@
 % densityFiltrationsE1Fiber
+addpath('/mnt/home/somapaul/cmse/van_hateren_study/software/image-topology/lib');
+addpath('/mnt/home/somapaul/cmse/van_hateren_study/software/image-topology/lib/fiber_analysis/kleinGrid');
+addpath('/mnt/home/somapaul/cmse/van_hateren_study/software/image-topology/lib/preprocess');
+addpath('/mnt/home/somapaul/cmse/van_hateren_study/software/image-topology/lib/misc/');
 
 fiberPath = '/mnt/home/somapaul/cmse/van_hateren_study/data/patches/M_9/fibers/grid/dNorm_NN/e1/';
 
