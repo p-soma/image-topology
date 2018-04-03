@@ -2,7 +2,7 @@
 addpath('/mnt/home/somapaul/cmse/van_hateren_study/software/image-topology/lib');
 addpath('/mnt/home/somapaul/cmse/van_hateren_study/software/image-topology/lib/fiber_analysis/kleinGrid');
 addpath('/mnt/home/somapaul/cmse/van_hateren_study/software/image-topology/lib/preprocess');
-addpath('/mnt/home/somapaul/cmse/van_hateren_study/software/image-topology/lib/misc/');
+addpath('/mnt/home/somapaul/cmse/van_hateren_study/software/image-topology/misc/');
 
 [lam, A] = DCTBasis();
 E = A';
