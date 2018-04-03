@@ -1,5 +1,5 @@
 
-data = fibe1;
+data = fibe1_by_density;
 figure, 
 idx = 1;
 for i=1:150
