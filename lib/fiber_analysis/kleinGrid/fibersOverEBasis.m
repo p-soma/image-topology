@@ -47,7 +47,7 @@ fiberPath = '/mnt/home/somapaul/cmse/van_hateren_study/data/patches/M_9/fibers/g
 
 for i=1:4
     e = E(i,:);
-    fiber = createFiber(K, M9_map_P3, M9, e);
+    [idx, fiber] = createFiber(K, M9_map_P3, M9, e);
     filename = strcat('e',num2str(i),'.txt');
     fullFile = fullfile(fiberPath,filename);    
     dlmwrite(fullFile,fiber);

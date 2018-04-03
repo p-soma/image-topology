@@ -10,7 +10,7 @@ function [IDX, fiber] = createFiber(K,y,Y,p)
     [IDX, D] = knnsearch(K,y,'K',1);
     
     % get index of e1 in K as locb
-    [Lia, locb] = ismember(p,K,'rows');
+    [~, locb] = ismembertol(p,K,0.000001,'ByRows',true);
   
     fiber = Y((IDX == locb),:);
 end
