@@ -30,8 +30,7 @@ function patch = createPatchOnK81(cell)
         i = i + 1;
         j = 1;
     end
-
-    
+    patch = reshape(patch,1,81);
     % subtract mean
     patch = patch - mean(patch);
     % normalize by D-norm

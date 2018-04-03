@@ -43,7 +43,7 @@ E = [e1;e2;e3;e4;e5;e6;e7;e8];
 K = kleinBottleGrid(33);
 
 % output paths for fibers
-fiberPath = '/mnt/home/somapaul/cmse/van_hateren_study/data/patches/M_9/fibers/grid/';
+fiberPath = '/mnt/home/somapaul/cmse/van_hateren_study/data/patches/M_9/fibers/grid/dNorm_NN/';
 
 for i=1:4
     e = E(i,:);

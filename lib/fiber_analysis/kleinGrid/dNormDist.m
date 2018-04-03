@@ -7,7 +7,6 @@ function distMat = dNormDist(X,Y)
     dim = size(X,2);
     D = dMatrix(dim);
     distMat = acos(X * D * Y');
-    % perform a change of basis
     distMat = real(distMat);                   % keep real part only
     if X == Y
         distMat = distMat - diag(diag(distMat));    % make diagonal zeros
