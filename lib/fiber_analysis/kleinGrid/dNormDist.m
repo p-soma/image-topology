@@ -4,6 +4,7 @@ function distMat = dNormDist(X,Y)
 %   param X, a matrix of row vectors representing patches
 %   param Y, a matrix of row vectors representing patches
 %   returns distMat
+%   dNormDistFun = @(x,Z)dNormDist(x,Z)';  for use as dist function param
     dim = size(X,2);
     D = dMatrix(dim);
     distMat = acos(X * D * Y');

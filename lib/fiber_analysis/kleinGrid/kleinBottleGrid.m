@@ -6,9 +6,9 @@ function K = kleinBottleGrid(n)
 %   return distMat, the distance matrix between points
 
     % generate 30 uniformly distributed points on S1
-    angles = linspace(0,2*pi,n);
+    angles = linspace(0,2*pi,n+1);
     S1 = [cos(angles); sin(angles)]';
-
+    S1 = S1(1:n,:);
     %array of vectors for each choice of parameters a,b,c,d
     abcd = [repmat(S1,n,1),repelem(S1,n,1)];
 

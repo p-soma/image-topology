@@ -14,21 +14,19 @@ function patch = createPatchOnK(cell)
     d = params(4);
     % evaluate polynomial on H
     
-    X = [-1 0 1];
-    Y = [-1 0 1];
+    x = [-1 0 1];
+    y = [-1 0 1];
     
-    patch = zeros(1,9);
+    [X,Y] = meshgrid(x,y);
 
-    idx = 1;
-    for x=X
-        for y=Y
-            patch(idx) = c*(a*x + b*y)^2 + d*(a*x + b*y);
-            idx = idx + 1;
-        end
-    end
+    patch = c*(a*X + b*Y).^2 + d*(a*X + b*Y);
+    
+    patch = reshape(patch,1,9);
+
     % subtract mean
     patch = patch - mean(patch);
     % normalize by D-norm
-    n = getPatchDNorms(patch);
+    % n = getPatchDNorms(patch);
+    n = norm(patch);
     patch = patch / n;
 end
