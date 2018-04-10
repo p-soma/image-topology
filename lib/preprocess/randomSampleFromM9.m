@@ -4,7 +4,7 @@ addpath('/mnt/home/somapaul/cmse/van_hateren_study/software/image-topology/lib/p
 addpath('/mnt/home/somapaul/cmse/van_hateren_study/software/image-topology/misc/');
 
 
-M9 = dlmread('/mnt/home/somapaul/cmse/van_hateren_study/data/patches/M_9/M_9_patches.txt');
+M9 = dlmread('/mnt/home/somapaul/cmse/van_hateren_study/data/patches/M_9/spaces/M_9_patches.txt');
 
 
 idx = randperm(size(M9,1),5e4);
