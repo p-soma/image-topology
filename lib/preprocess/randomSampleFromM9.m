@@ -7,11 +7,11 @@ addpath('/mnt/home/somapaul/cmse/van_hateren_study/software/image-topology/misc/
 M9 = dlmread('/mnt/home/somapaul/cmse/van_hateren_study/data/patches/M_9/spaces/M_9_patches.txt');
 
 
-idx = randperm(size(M9,1),5e4);
+idx = randperm(size(M3,1),5e4);
 
-M9_sample = M9(idx,:);
+M3_sample = M3(idx,:);
 
-dlmwrite('/mnt/home/somapaul/cmse/van_hateren_study/data/patches/M_9/random_subsamples/M9_sample_5e4_1.txt',M9_sample,',');
+dlmwrite('/mnt/home/somapaul/cmse/van_hateren_study/data/patches/M_3/random_subsamples/M3_sample_5e4_1.txt',M3_sample,',');
 
 
 
