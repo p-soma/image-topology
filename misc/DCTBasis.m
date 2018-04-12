@@ -38,15 +38,15 @@ function [lam, A] = DCTBasis()
     lam = 1 ./ lam;
     lam = diag(lam);
     
-    % show the basis patches
-%     figure, 
-%     for i=1:8
-%         e = E(i,:);
-%         e = reshape(e, [3 3]);
-%         subplot(2,4,i);
-%         imshow(e, [])
-%         box on
-%     end
+%     show the basis patches
+    figure, 
+    for i=1:8
+        e = E(i,:);
+        e = reshape(e, [3 3]);
+        subplot(2,4,i);
+        imshow(e, [])
+        box on
+    end
     
 %     abcd = [-1, 0, 0, 1; 0, -1, 0, 1; 1, 0, 1, 0; 0, 1, 1, 0]
 % 

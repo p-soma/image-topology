@@ -5,11 +5,11 @@ data = D;
     figure, 
     idx = 1;
     start = 1; %(j-1)*100 + 1;
-    finish = 9; %start + 99;
+    finish = 64; %start + 99;
     for i=start:finish
         patch = data(i,:);
         patch = (patch + 1) * (4/5);
-        subplot(2,5,idx)
+        subplot(2,10,idx)
         imshow(reshape(patch,3,3))
         idx = idx + 1;
     end
