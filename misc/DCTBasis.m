@@ -31,18 +31,43 @@ function [lam, A] = DCTBasis()
 
     A = E';
 
-    figure, 
-    for i=1:8
-        e = E(i,:);
-        e = reshape(e, [3 3]);
-        subplot(2,4,i);
-        imshow(e, [])
-        box on
-    end
 
-    lam = [norm(e1)^2,norm(e2)^2,norm(e3),norm(e4),norm(e5),norm(e6),norm(e7),norm(e8)];
+
+    lam = [norm(e1),norm(e2),norm(e3),norm(e4),norm(e5),norm(e6),norm(e7),norm(e8)];
     lam = lam .^ 2;
     lam = 1 ./ lam;
     lam = diag(lam);
+    
+    % show the basis patches
+%     figure, 
+%     for i=1:8
+%         e = E(i,:);
+%         e = reshape(e, [3 3]);
+%         subplot(2,4,i);
+%         imshow(e, [])
+%         box on
+%     end
+    
+%     abcd = [-1, 0, 0, 1; 0, -1, 0, 1; 1, 0, 1, 0; 0, 1, 1, 0]
+% 
+% abcdCell = num2cell(abcd,2);
+% 
+% 
+% E9 = cell2mat(arrayfun(@(x) createPatchOnK81(x),abcdCell,'UniformOutput',false));
+% 
+% 
+% data = E9;
+% figure, 
+% idx = 1;
+% for i=1:4
+%     patch = data(i,:);
+%     patch = (patch + 1) * (4/5);
+%     subplot(1,5,idx)
+%     imshow(reshape(patch,9,9))
+%     idx = idx + 1;
+% end
+% hold on,
+% subplot(1,5,5)
+% imshow(reshape(e4pix,3,3))
     
 end

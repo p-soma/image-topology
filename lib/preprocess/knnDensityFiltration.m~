@@ -16,9 +16,9 @@ function Xkp = knnDensityFiltration(X, k, p)
     
     % get number of points to keep based on cut param p
     n = ceil(p * size(X,1));
-    % indices for top p% of densest points
-    idxKcut = idxK(1:n);
     
-    Xkp = X(idxKcut,:);
-   
+    X_sorted = X(:);
+    
+    Xkp = X_sorted(1:n,:);
+    
 end

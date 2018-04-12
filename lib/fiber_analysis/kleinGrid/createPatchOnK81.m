@@ -27,6 +27,7 @@ function patch = createPatchOnK81(cell)
     % subtract mean
     patch = patch - mean(patch);
     % normalize by D-norm
-    n = getPatchDNorms(patch);
-    patch = patch ./ n;
+    % n = getPatchDNorms(patch);
+    n = norm(patch);
+    patch = patch / n;
 end
