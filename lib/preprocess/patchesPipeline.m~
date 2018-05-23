@@ -21,12 +21,11 @@ function [rawPatches, patches] = patchesPipeline(dim, imgPath, outPath)
     % save to txt files
     rawPatchesFile = strcat(outPath, '_raw');
     patchesFile = strcat(outPath, '_log_meansub_dNormalize');
+    
     rawPatchesPixelateFile = strcat(outPath, '_raw_pixelated');
-    patchesPixelateFile = strcat(outPath, '_log_meansub_dNormalize_pixelated');
+    patchesPixelateFile = strcat(outPath, '_raw_pixelated');
 
     dlmwrite(rawPatchesFile, rawPatches, 'delimiter', ',', 'precision', 10);
     dlmwrite(patchesFile, patches, 'delimiter', ',', 'precision', 10);
-    dlmwrite(rawPatchesPixelateFile, rawPatchesPixelate, 'delimiter', ',', 'precision', 10);
-    dlmwrite(patchesPixelateFile, patchesPixelate, 'delimiter', ',', 'precision', 10);
-
+    dlmwrite(
 end
