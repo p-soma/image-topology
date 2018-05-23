@@ -26,7 +26,7 @@ function patch = createPatchOnK(cell)
     % subtract mean
     patch = patch - mean(patch);
     % normalize by Euclidean norm
-    % n = getPatchDNorms(patch);
-    n = norm(patch);
+    n = getPatchDNorms(patch);
+    % n = norm(patch);
     patch = patch / n;
 end
