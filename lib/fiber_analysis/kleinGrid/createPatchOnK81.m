@@ -1,4 +1,4 @@
-function patch = createPatchOnK81(cell) 
+function patch = createPatchOnK81(c) 
 % function to generate a patch on the klein bottle K in space of 9x9
 % patches
 %   composition of two functions, g and q, where
@@ -6,21 +6,22 @@ function patch = createPatchOnK81(cell)
 %       q : P -> S7 is given by the composite of evaluating a
 %       polynomial on the grid of 81 points, H, subtracting the mean, and
 %       normalizing by D-norm
-    
-    params = cell2mat(cell);
-    
-    a = params(1);
-    b = params(2);
-    c = params(3);
-    d = params(4);
+%     
+     %params = cell2mat(c);
+%     
+%     a = params(1);
+%     b = params(2);
+%     c = params(3);
+%     d = params(4);
     % evaluate polynomial on H
     
     x = linspace(-1,1,9);
     y = linspace(-1,1,9);
     
     [X,Y] = meshgrid(x,y);
-
-    patch = c*(a*X + b*Y).^2 + d*(a*X + b*Y);
+    
+    patch = cos(2*pi*X*c);
+    %patch = c*(a*X + b*Y).^2 + d*(a*X + b*Y);
     
     patch = reshape(patch,1,81);
 

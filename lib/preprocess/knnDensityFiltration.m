@@ -1,4 +1,4 @@
-function Xkp = knnDensityFiltration(X, k, p)
+function [IDX, Xkp] = knnDensityFiltration(X, k, p)
 % density estimation
 %   param X a metric space
 %   param k parameter for kth nearest neighbor

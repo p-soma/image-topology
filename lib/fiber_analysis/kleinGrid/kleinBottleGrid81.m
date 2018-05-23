@@ -9,13 +9,13 @@ function K = kleinBottleGrid81(n)
     angles = linspace(0,2*pi - (2*pi/n),n);
     S1 = [cos(angles); sin(angles)]';
     %array of vectors for each choice of parameters a,b,c,d
-    abcd = [repmat(S1,n,1),repelem(S1,n,1)];
-
-    abcdCell = num2cell(abcd,2);
+    %abcd = [repmat(S1,n,1),repelem(S1,n,1)];
+    abcd = 1:10;
+    abcdCell = num2cell(abcd,1);
     
     %create grid of patches on K
     K = cell2mat(arrayfun(@(x) createPatchOnK81(x),abcdCell,'UniformOutput',false));
     
     %keep only unique points
-    K = uniquetol(K,0.000001,'ByRows',true);
+    %K = uniquetol(K,0.000001,'ByRows',true);
 end

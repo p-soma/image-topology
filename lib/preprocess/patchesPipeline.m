@@ -1,11 +1,10 @@
-function M_n = patchesPipeline(dim, imgPath, dataPath, dataFileName)
+function [rawPatches, patches] = patchesPipeline(dim, imgPath, outPath)
     % main pipeline for patch sampling
     %   param dim is dimension of patch vectors (must be square integer)
     %   param imgPath is the directory where the images are stored
-    %   param dataPath is the directory to store the resulting set M_n
-    %   param dataFileName is the file to store M_n
+    %   param dataPath is the full path to the file to store the patches
     %   returns M_n a set of high contrast sqrt(dim) by sqrt(dim) pixel
-    %       patches
+    %       patches as dim-dimensional vectors
     
     n = 5000; 
     cut = 0.2; 
@@ -14,10 +13,12 @@ function M_n = patchesPipeline(dim, imgPath, dataPath, dataFileName)
     %dataPath = './patches/';
     
     % get high contrast n by n patches M_n
-    M_n = createPatchSample(n, cut, dim, imgPath);
+    [rawPatches, patches] = createPatchSample(n, cut, dim, imgPath);
 
-    % save to csv
-    patches_f = fullfile(dataPath,dataFileName); 
-    dlmwrite(patches_f, M_n, 'delimiter', ',', 'precision', 6);
-
+    % save to txt files
+    rawPatchesFile = strcat(outPath, '_raw');
+    patchesFile = strcat(outPath, '_log_meansub_dNormalize');
+    
+    dlmwrite(rawPatchesFile, rawPatches, 'delimiter', ',', 'precision', 10);
+    dlmwrite(patchesFile, patches, 'delimiter', ',', 'precision', 10);
 end

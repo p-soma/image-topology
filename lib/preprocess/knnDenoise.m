@@ -3,14 +3,12 @@ function X = knnDenoise(X, k)
 %   replace each point x in X with the average of points in its neighborhood,
 %   where neighborhood is the k nearest points to x
 
-    [IDX, D] = knnsearch(X,X,'K',15);
+    [IDX, D] = knnsearch(X,X,'K',k);
 
     IDXCells = num2cell(IDX,2);
     
     %create grid of patches on K
     X = cell2mat(arrayfun(@(idxCell) getNeighborhoodMean(X,idxCell),IDXCells,'UniformOutput',false));
     
-
-
 
 end

@@ -5,12 +5,13 @@ function buf = readIML(filename)
     f1 = fopen(filename,'rb','ieee-be');
     w=1536;h=1024;
     buf=fread(f1,[w,h],'uint16');
-    %colormap(gray);
-    %imagesc(buf');
+    colormap(gray);
+    buf = log(1+buf);
+    imagesc(buf');
 end
 
 % 
-% 
+% original:
 % f1 = fopen('imk00001.iml','rb','ieee-be');
 % w=1536;h=1024;
 % buf=fread(f1,[w,h],'uint16');

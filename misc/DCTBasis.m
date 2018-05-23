@@ -40,10 +40,11 @@ function [lam, A] = DCTBasis()
     
 %     show the basis patches
     figure, 
-    for i=1:8
+    for i=1:4
         e = E(i,:);
         e = reshape(e, [3 3]);
-        subplot(2,4,i);
+        subplot(1,4,i);
+        title(strcat('e',num2str(i)))
         imshow(e, [])
         box on
     end

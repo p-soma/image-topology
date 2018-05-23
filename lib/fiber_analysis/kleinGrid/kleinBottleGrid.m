@@ -17,8 +17,6 @@ function K = kleinBottleGrid(n)
     %array of vectors for each choice of parameters a,b,c,d
     abcd = [repmat(S1,n,1),repelem(S1,n,1)];
 %     abcd_ = abcd .* [-1 -1 1 -1];
-%     
-%     repeats = ismembertol(abcd, abcd_,'ByRows',true);
 
     abcdCell = num2cell(abcd,2);
     
