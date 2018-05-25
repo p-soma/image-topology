@@ -6,7 +6,6 @@ function buf = readIML(filename)
     w=1536;h=1024;
     buf=fread(f1,[w,h],'uint16');
     colormap(gray);
-    buf = log(1+buf);
     imagesc(buf');
 end
 
