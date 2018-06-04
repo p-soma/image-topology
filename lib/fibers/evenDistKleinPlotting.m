@@ -1,13 +1,4 @@
-%%
-matsize = 64;
-normalize = 'dnorm';
-
-[patches, angles, sz] = kleinGrid(matsize, normalize);
-[distA_naive, distB_naive, interpAinv, interpBinv] = generateKleinAngles(patches, angles, sz);
-for i=1:5
-    [distA, distB, interpAinv, interpBinv] = generateKleinAngles(patches, angles, sz);
-    [patches, angles, sz] = kleinGridAng(interpAinv,interpBinv, normalize);
-end
+% even klein grid figures
 %%
 figure; 
 scatter(distA(:,1),distA(:,2),'r*')
@@ -47,11 +38,11 @@ figure; scatter(distA_naive(1:end-1,1),diffsA_naive,'r*')
 hold on; scatter(distA(1:end-1,1),diffsA,'b.')
 xlabel('"rotation" parameter \alpha')
 ylabel('change in distance between points')
-title('change in distance between points on K')
+title('Change in Distance Between Points in "Rotation" Direction')
 legend({'naive parameter generation method','linear interpolation parameter method, 5 iterations'},'Location','southwest')
 figure; scatter(distB_naive(1:end-1,1),diffsB_naive,'r*')
 hold on; scatter(distB(1:end-1,1),diffsB,'b.')
 xlabel('"linear/quadratic" parameter \phi')
 ylabel('change in distance between points')
-title('change in distance between points on K')
-legend({'naive pargeneration method','linear interpolation parameter method, 5 iterations'}, 'Location', 'southwest')
+title('Change in Distance Between Points in "Linear/Quadratic" Direction')
+legend({'naive parameter generation method','linear interpolation parameter method, 5 iterations'}, 'Location', 'southwest')
