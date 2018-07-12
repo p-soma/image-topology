@@ -1,19 +1,23 @@
-function patch = blobPatch(lim);
-
-    x = linspace(-lim,lim,9)
-    %X = gaussmf(x,[1,0])
-    X = cos(x);
-    y = linspace(-lim,lim,9)
-    %Y = gaussmf(y,[1,0])
-    Y = cos(y);
+function patch = blobPatch(sdx,mx,sdy,my);
+    
+    lim = 1;
+    dim = 9;
+    
+    
+    x = linspace(-lim,lim,dim)
+    X = gaussmf(x,[sdx,mx])
+    %X = cos(x);
+    y = linspace(-lim,lim,dim)
+    Y = gaussmf(y,[sdy,my])
+    %Y = cos(y);
     [a,b] = meshgrid(X,Y)
 
     patch = a+b
 
-    patch = reshape(patch,1,81)
+    patch = reshape(patch,1,(dim^2))
     patch = patch - mean(patch,2)
     patch = (patch + 1) * (4/5)
-    patch = reshape(patch,9,9)
+    patch = reshape(patch,dim,dim)
     figure;
     subplot(1,2,1);
     imshow(patch)
