@@ -26,3 +26,4 @@ function patch = kleinPatch(c)
 %     n = getPatchDNorms(patch);
 %     % n = norm(patch);
 %     patch = patch / n;
+end

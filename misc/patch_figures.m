@@ -13,5 +13,13 @@ for i=1:ii
         idx = idx + 1;
     end
 end
-
-
+% 
+% data = patches;
+% 
+% IDX = [1,25;13,1]
+% for i=1:2
+%     patch = data{IDX(i,:)};
+%     patch = (patch + 1) * (4/5);
+%     subplot(1,2,i);
+%     imshow(reshape(patch,3,3));
+% end
