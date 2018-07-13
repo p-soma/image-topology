@@ -22,11 +22,11 @@ function patch = blobPatch(sdx,mx,sdy,my,method);
     dNorm = getPatchDNorms(patch);
     patch = patch / dNorm;
     
-    
-    % patchdisp = (patch + 1) * (4/5);
-    % patchdisp = reshape(patchdisp,dim,dim);
-    % figure;
-    % subplot(1,2,1);
-    % imshow(patchdisp)
+
+    patchdisp = (patch + 1) * (4/5);
+    patchdisp = reshape(patchdisp,dim,dim);
+    figure;
+    subplot(1,2,1);
+    imshow(patchdisp)
     
 end
