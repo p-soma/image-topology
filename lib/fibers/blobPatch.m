@@ -3,11 +3,11 @@ function patch = blobPatch(sdx,mx,sdy,my);
     dim = 9;
     
     x = linspace(-lim,lim,dim);
-    X = gaussmf(x,[sdx,mx]);
-    %X = cos(x);
+    %X = gaussmf(x,[sdx,mx]);
+    X = cos(x);
     y = linspace(-lim,lim,dim);
-    Y = gaussmf(y,[sdy,my]);
-    %Y = cos(y);
+    %Y = gaussmf(y,[sdy,my]);
+    Y = cos(y);
     [a,b] = meshgrid(X,Y);
 
     patch = a+b;
