@@ -16,5 +16,5 @@ patches = dlmread('/mnt/home/somapaul/cmse/van_hateren_study/data/patches/M9/M9_
 
 [Idx,D] = knnsearch(patches,target,'K',100000);
 
-dlmwrite('cosblob_sd1_m0_IDX.txt',Idx,'delimiter',',');
-dlmwrite('cosblob_sd1_m0_dists.txt',D','delimiter',',','precision',10);
+dlmwrite('gaussblob_sd1_m0_IDX.txt',Idx,'delimiter',',');
+dlmwrite('gaussblob_sd1_m0_dists.txt',D','delimiter',',','precision',10);
