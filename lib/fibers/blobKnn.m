@@ -11,9 +11,9 @@ my = 0;
 
 target = blobPatch(sdx,mx,sdy,my);
 
-patches = dlmread('/mnt/home/somapaul/cmse/van_hateren_study/data/patches/M9/M9_log_meansub_dNormalize_pixelated_meansub_dNormalize',',')
+patches = dlmread('/mnt/home/somapaul/cmse/van_hateren_study/data/patches/M9/M9_log_meansub_dNormalize_pixelated_meansub_dNormalize',',');
 
 
 Idx = knnsearch(patches,target);
 
-dlmwrite('gaussblob_sd1_m0.txt',Idx,',')
+dlmwrite('gaussblob_sd1_m0.txt',Idx,',');
