@@ -10,8 +10,8 @@ sdy = 1;
 my = 0;
 
 target = blobPatch(sdx,mx,sdy,my);
-
-patches = dlmread('/mnt/home/somapaul/cmse/van_hateren_study/data/patches/M9/M9_log_meansub_dNormalize_pixelated_meansub_dNormalize',',');
+target = reshape(target,1,81);
+patches = dlmread('/mnt/home/somapaul/cmse/van_hateren_study/data/patches/M9/M9_log_meansub_dNormalize',',');
 
 
 Idx = knnsearch(patches,target);
