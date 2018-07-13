@@ -1,8 +1,6 @@
 function patch = blobPatch(sdx,mx,sdy,my);
-    
     lim = 1;
     dim = 9;
-    
     
     x = linspace(-lim,lim,dim)
     X = gaussmf(x,[sdx,mx])
