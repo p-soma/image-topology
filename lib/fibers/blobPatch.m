@@ -1,13 +1,18 @@
-function patch = blobPatch(sdx,mx,sdy,my);
+function patch = blobPatch(sdx,mx,sdy,my,method);
     lim = 1;
     dim = 9;
     
     x = linspace(-lim,lim,dim);
-    X = gaussmf(x,[sdx,mx]);
-    %X = cos(x);
     y = linspace(-lim,lim,dim);
-    Y = gaussmf(y,[sdy,my]);
-    %Y = cos(y);
+    
+    if strcmp(method,'cos')
+        X = cos(x);
+        Y = cos(y);
+    elseif strcmp(method,'gauss')
+        X = gaussmf(x,[sdx,mx]);
+        Y = gaussmf(y,[sdy,my]);
+    end
+    
     [a,b] = meshgrid(X,Y);
 
     patch = a+b;
