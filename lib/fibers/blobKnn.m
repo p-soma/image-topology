@@ -18,7 +18,7 @@ target = reshape(target,1,81);
 
 [Idx,D] = knnsearch(patches,target,'K',100000);
 
-dlmwrite('gaussblob_sd1_m0_IDX.txt',Idx,'delimiter',',');
+dlmwrite('gaussblob_sd1_m0_IDX.txt',Idx','delimiter',',');
 dlmwrite('gaussblob_sd1_m0_dists.txt',D','delimiter',',','precision',10);
 % 
 target2 = blobPatch(sdx,mx,sdy,my,'cos');
@@ -26,5 +26,5 @@ target2 = reshape(target2,1,81);
 
 [Idx2,D2] = knnsearch(patches,target2,'K',100000);
 
-dlmwrite('cosblob_sd1_m0_IDX.txt',Idx2,'delimiter',',');
+dlmwrite('cosblob_sd1_m0_IDX.txt',Idx2','delimiter',',');
 dlmwrite('cosblob_sd1_m0_dists.txt',D2','delimiter',',','precision',10);
