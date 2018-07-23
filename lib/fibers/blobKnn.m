@@ -28,6 +28,6 @@ target2 = reshape(target2,1,81);
 
 [Idx2,D2] = knnsearch(patches,target2,'K',100000);
 
-dlmwrite('cosblob_sd05_m0_IDX.txt',Idx2','delimiter',',');
-dlmwrite('cosblob_sd05_m0_dists.txt',D2','delimiter',',','precision',10);
-dlmwrite('cossblob_sd05_m0_lmd_patches.txt',patches(Idx2,:),'delimiter',',');
+dlmwrite('cosblob_IDX.txt',Idx2','delimiter',',');
+dlmwrite('cosblob_dists.txt',D2','delimiter',',','precision',10);
+dlmwrite('cossblob_lmd_patches.txt',patches(Idx2,:),'delimiter',',');
