@@ -1,8 +1,8 @@
 function fib = loadFiber(i,j,type)
 
     % load fiber
-    folder = '/Users/paulsoma/Google Drive/JLM_PAS/PyVH/fiber_data/singles';
-    %folder = '/mnt/home/somapaul/cmse/van_hateren_study/software/fiber_data/singles';
+    %folder = '/Users/paulsoma/Google Drive/JLM_PAS/PyVH/fiber_data/singles';
+    folder = '/mnt/home/somapaul/cmse/van_hateren_study/software/fiber_data/singles';
 %     i = 0;
 %     j = 0;
 %     type = 'log_prior';

@@ -15,7 +15,7 @@ pts = fib.fine_images;
 
 dens =  D(:,15);
 
-dens = datasample(dens,100,1);
+dens = datasample(dens,1000,1);
 
 numpts = size(dens,1);
 
