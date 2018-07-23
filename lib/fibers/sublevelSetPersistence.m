@@ -40,4 +40,4 @@ fname = strcat('slsp_',num2str(ii),'_',num2str(jj),'_',datestr(now,'mmddTHHMMSS'
 
 path = fullfile('/mnt/home/somapaul/cmse/van_hateren_study/software/slsp',fname);
 
-dlmwrite(fname,J);
+dlmwrite(path,J);
